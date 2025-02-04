@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Editor from '@monaco-editor/react';
 
 function xclass(...args) {
   return args.filter(a => !!a).join(" ").trim()
@@ -121,11 +122,10 @@ export class Button extends React.Component {
   render() {
     return <button {...this.props} className={xclass(this.props.className, "button")} />
   }
-
 }
 
 
-export const TextArea = (props) => <textarea {...props} />
+export const TextArea = (props) => <Editor height="40vh" theme="vs-dark" defaultLanguage="json" fontSize="16px" {...props} />; //<textarea {...props} />
 
 export const Input = (props) => <input {...props} />
 

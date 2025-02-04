@@ -76,6 +76,7 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.22.11",
     "@braintree/sanitize-url": "=6.0.4",
+    "@monaco-editor/react": "=4.5.2",
     "base64-js": "^1.5.1",
     "classnames": "^2.3.1",
     "css.escape": "1.5.1",

@@ -48,7 +48,7 @@ export default class RequestBodyEditor extends PureComponent {
   }
 
   onDomChange = e => {
-    const inputValue = e.target.value
+    const inputValue = e?.target?.value || e;
 
     this.setState({
       value: inputValue,
@@ -87,9 +87,9 @@ export default class RequestBodyEditor extends PureComponent {
 
     let isInvalid = errors.size > 0 ? true : false
     const TextArea = getComponent("TextArea")
-
+    console.log("Rerender. ", this.state)
     return (
-      <div className="body-param">
+      <div className="body-param" id={'safari'}>
         <TextArea
           className={cx("body-param__text", { invalid: isInvalid } )}
           title={errors.size ? errors.join(", ") : ""}
