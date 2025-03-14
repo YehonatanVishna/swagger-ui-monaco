@@ -6,6 +6,9 @@ import get from "lodash/get"
 import isFunction from "lodash/isFunction"
 import saveAs from "js-file-download"
 import { CopyToClipboard } from "react-copy-to-clipboard"
+import Editor from '@monaco-editor/react';
+import { MONACCO_THEME } from "../../consts"
+import { EdiorWrapper } from "./EditorWrapper/EditorWrapper"
 
 const HighlightCode = ({value, fileName, className, downloadable, getConfigs, canCopy, language}) => {
   const config = isFunction(getConfigs) ? getConfigs() : null
@@ -43,6 +46,7 @@ const HighlightCode = ({value, fileName, className, downloadable, getConfigs, ca
     }
   }
 
+
   return (
     <div className="highlight-code" ref={rootRef}>
       {canCopy && (
@@ -57,14 +61,20 @@ const HighlightCode = ({value, fileName, className, downloadable, getConfigs, ca
         </button>
       }
 
+      
+
       {canSyntaxHighlight
-        ? <SyntaxHighlighter
+        ? <EdiorWrapper
           language={language}
+          height={500}
+          width="100%"
           className={cx(className, "microlight")}
+          value={value}
+          theme={MONACCO_THEME}
           style={getStyle(get(config, "syntaxHighlight.theme", "agate"))}
+          options={{readOnly: true}}
         >
-          {value}
-        </SyntaxHighlighter>
+        </EdiorWrapper>
         : <pre className={cx(className, "microlight")}>{value}</pre>
       }
 

@@ -1,0 +1,1 @@
+export const MONACCO_THEME = 'vs-dark'
