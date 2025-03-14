@@ -1,10 +1,19 @@
-.swagger-monaco-editor{
-    width: 100%;
-    resize: vertical;
-    overflow: auto;
-}
+// .swagger-monaco-editor{
+//     width: 100%;
+//     resize: vertical;
+//     overflow: auto;
+// }
 
-.overflow-guard{
-    resize: both;
-    overflow: auto;
+// .overflow-guard{
+//     resize: both;
+//     overflow: auto;
+// }
+
+
+.swagger-monaco-editor-container{
+
+    & .swagger-monaco-editor{
+        resize: both;
+        overflow: auto;
+    }
 }

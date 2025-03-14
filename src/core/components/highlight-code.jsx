@@ -8,7 +8,7 @@ import saveAs from "js-file-download"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import Editor from '@monaco-editor/react';
 import { MONACCO_THEME } from "../../consts"
-import { EdiorWrapper } from "./EditorWrapper/EditorWrapper"
+import { EditorWrapper } from "./EditorWrapper/EditorWrapper"
 
 const HighlightCode = ({value, fileName, className, downloadable, getConfigs, canCopy, language}) => {
   const config = isFunction(getConfigs) ? getConfigs() : null
@@ -64,7 +64,7 @@ const HighlightCode = ({value, fileName, className, downloadable, getConfigs, ca
       
 
       {canSyntaxHighlight
-        ? <EdiorWrapper
+        ? <EditorWrapper
           language={language}
           height={500}
           width="100%"
@@ -74,7 +74,7 @@ const HighlightCode = ({value, fileName, className, downloadable, getConfigs, ca
           style={getStyle(get(config, "syntaxHighlight.theme", "agate"))}
           options={{readOnly: true}}
         >
-        </EdiorWrapper>
+        </EditorWrapper>
         : <pre className={cx(className, "microlight")}>{value}</pre>
       }
 
