@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Editor from '@monaco-editor/react';
+import Editor, { loader } from '@monaco-editor/react';
 import { MONACCO_THEME } from '../../../consts';
+import * as monaco from 'monaco-editor';
+
+loader.config({ monaco });
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

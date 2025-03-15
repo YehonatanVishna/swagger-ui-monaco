@@ -7,6 +7,7 @@ const deepExtend = require("deep-extend")
 const webpack = require("webpack")
 const TerserPlugin = require("terser-webpack-plugin")
 const nodeExternals = require("webpack-node-externals")
+const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin")
 
 const { getRepoInfo } = require("./_helpers")
 const pkg = require("../package.json")
@@ -37,6 +38,14 @@ const baseRules = [
   {
     test: /\.(png|jpg|jpeg|gif)$/,
     type: "asset/inline",
+  },
+  {
+    test: /\.css$/,
+    use: ["style-loader", "css-loader"],
+  },
+  {
+    test: /\.ttf$/,
+    type: "asset/resource",
   },
 ]
 
@@ -167,6 +176,7 @@ function buildConfig(
 
   // deepExtend mangles Plugin instances, this doesn't
   completeConfig.plugins = plugins.concat(customConfig.plugins || [])
+  completeConfig.plugins.push(new MonacoWebpackPlugin())
 
   return completeConfig
 }

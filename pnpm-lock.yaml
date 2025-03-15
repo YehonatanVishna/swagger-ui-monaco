@@ -47,6 +47,12 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      monaco-editor:
+        specifier: ^0.52.2
+        version: 0.52.2
+      monaco-editor-webpack-plugin:
+        specifier: ^7.1.0
+        version: 7.1.0(monaco-editor@0.52.2)(webpack@5.98.0)
       patch-package:
         specifier: ^8.0.0
         version: 8.0.0
@@ -110,6 +116,9 @@ importers:
       sha.js:
         specifier: ^2.4.11
         version: 2.4.11
+      style-loader:
+        specifier: ^4.0.0
+        version: 4.0.0(webpack@5.98.0)
       swagger-client:
         specifier: ^3.22.1
         version: 3.34.3
@@ -196,7 +205,7 @@ importers:
         specifier: '=7.0.3'
         version: 7.0.3
       css-loader:
-        specifier: '=6.8.1'
+        specifier: ^6.8.1
         version: 6.8.1(webpack@5.98.0)
       cssnano:
         specifier: '=6.0.1'
@@ -5892,6 +5901,12 @@ packages:
     resolution: {integrity: sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==}
     engines: {node: '>=0.10.0'}
 
+  monaco-editor-webpack-plugin@7.1.0:
+    resolution: {integrity: sha512-ZjnGINHN963JQkFqjjcBtn1XBtUATDZBMgNQhDQwd78w2ukRhFXAPNgWuacaQiDZsUr4h1rWv5Mv6eriKuOSzA==}
+    peerDependencies:
+      monaco-editor: '>= 0.31.0'
+      webpack: ^4.5.0 || 5.x
+
   monaco-editor@0.52.2:
     resolution: {integrity: sha512-GEQWEZmfkOGLdd3XK8ryrfWz3AIP8YymVXiPHEdewrUq7mh0qrKrfHLNCXcbB6sTnMLnOZ3ztSiKcciFUkIJwQ==}
 
@@ -7812,6 +7827,12 @@ packages:
   strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
+
+  style-loader@4.0.0:
+    resolution: {integrity: sha512-1V4WqhhZZgjVAVJyt7TdDPZoPBPNHbekX4fWnCJL1yQukhCeZhJySUL+gL9y6sNdN95uEOS83Y55SqHcP7MzLA==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      webpack: ^5.27.0
 
   stylehacks@6.1.1:
     resolution: {integrity: sha512-gSTTEQ670cJNoaeIp9KX6lZmm8LJ3jPB5yJmX8Zq/wQxOsAFXV3qjWzHas3YYk1qesuVIyYWWUpZ0vSE/dTSGg==}
@@ -15660,6 +15681,12 @@ snapshots:
 
   modify-values@1.0.1: {}
 
+  monaco-editor-webpack-plugin@7.1.0(monaco-editor@0.52.2)(webpack@5.98.0):
+    dependencies:
+      loader-utils: 2.0.4
+      monaco-editor: 0.52.2
+      webpack: 5.98.0(webpack-cli@4.10.0)
+
   monaco-editor@0.52.2: {}
 
   moo@0.5.2: {}
@@ -17824,6 +17851,10 @@ snapshots:
   strip-json-comments@2.0.1: {}
 
   strip-json-comments@3.1.1: {}
+
+  style-loader@4.0.0(webpack@5.98.0):
+    dependencies:
+      webpack: 5.98.0(webpack-cli@4.10.0)
 
   stylehacks@6.1.1(postcss@8.5.3):
     dependencies:

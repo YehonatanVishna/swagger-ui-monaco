@@ -96,6 +96,14 @@ const devConfig = configBuilder(
           test: /\.(png|jpg|jpeg|gif)$/,
           type: "asset/inline",
         },
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.ttf$/,
+          type: "asset/resource",
+        },
       ],
     },
 
