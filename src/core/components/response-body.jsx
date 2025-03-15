@@ -15,7 +15,6 @@ export default class ResponseBody extends React.PureComponent {
   static propTypes = {
     content: PropTypes.any.isRequired,
     contentType: PropTypes.string,
-    getConfigs: PropTypes.func.isRequired,
     getComponent: PropTypes.func.isRequired,
     headers: PropTypes.object,
     url: PropTypes.string
@@ -52,20 +51,20 @@ export default class ResponseBody extends React.PureComponent {
   }
 
   render() {
-    let { content, contentType, url, headers={}, getConfigs, getComponent } = this.props
+    let { content, contentType, url, headers={}, getComponent } = this.props
     const { parsedContent } = this.state
-    const HighlightCode = getComponent("highlightCode")
+    const HighlightCode = getComponent("HighlightCode", true)
     const downloadName = "response_" + new Date().getTime()
     let body, bodyEl
     url = url || ""
 
     if (
       (/^application\/octet-stream/i.test(contentType) ||
-      (headers["Content-Disposition"] && /attachment/i.test(headers["Content-Disposition"])) ||
-      (headers["content-disposition"] && /attachment/i.test(headers["content-disposition"])) ||
-      (headers["Content-Description"] && /File Transfer/i.test(headers["Content-Description"])) ||
-      (headers["content-description"] && /File Transfer/i.test(headers["content-description"]))) &&
-      content.size > 0
+        (headers["Content-Disposition"] && /attachment/i.test(headers["Content-Disposition"])) ||
+        (headers["content-disposition"] && /attachment/i.test(headers["content-disposition"])) ||
+        (headers["Content-Description"] && /File Transfer/i.test(headers["Content-Description"])) ||
+        (headers["content-description"] && /File Transfer/i.test(headers["content-description"]))) &&
+      (content.size > 0 || content.length > 0)
     ) {
       // Download
 

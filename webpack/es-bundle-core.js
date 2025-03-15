@@ -14,6 +14,7 @@ const {
   WebpackBundleSizeAnalyzerPlugin,
 } = require("webpack-bundle-size-analyzer")
 const nodeExternals = require("webpack-node-externals")
+const { getDevtool } = require("./_helpers")
 // const { StatsWriterPlugin } = require("webpack-stats-plugin")
 
 const minimize = true
@@ -44,7 +45,7 @@ const result = configBuilder(
         module: true,
       },
     },
-    devtool: sourcemaps && minimize ? "source-map" : false,
+    devtool: getDevtool(sourcemaps, minimize),
     externalsType: "module",
     externals: [
       {
@@ -55,14 +56,14 @@ const result = configBuilder(
           "deep-extend", // uses Buffer as global symbol
           "randombytes", // uses require('safe-buffer')
           "sha.js", // uses require('safe-buffer')
-          /xml/, // uses require('stream')
-          /process\/browser/, // is injected via ProvidePlugin
-          /readable-stream/, // byproduct of buffer ProvidePlugin injection
+          "xml", // uses require('stream')
+          "process/browser", // is injected via ProvidePlugin
+          /^readable-stream/, // byproduct of buffer ProvidePlugin injection
           "util-deprecate", // dependency of readable-stream
           "inherits", // dependency of readable-stream
           "events", // dependency of readable-stream
-          /safe-buffer/, // contained in resolve.alias
-          /string_decoder/, // byproduct of buffer ProvidePlugin injection
+          "safe-buffer", // contained in resolve.alias
+          "string_decoder/", // byproduct of buffer ProvidePlugin injection
           "buffer", // buffer is injected via ProvidePlugin
         ],
         importType: (moduleName) => {
