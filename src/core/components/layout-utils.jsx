@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { MONACCO_THEME } from "../../consts";
 import { EditorWrapper } from "./EditorWrapper/EditorWrapper";
 
 function xclass(...args) {
@@ -126,7 +125,7 @@ export class Button extends React.Component {
 }
 
 
-export const TextArea = (props) => <EditorWrapper height="40vh" theme={MONACCO_THEME} defaultLanguage="json" fontSize="16px" {...props} />; //<textarea {...props} />
+export const TextArea = (props) => <EditorWrapper height="40vh" defaultLanguage="json" fontSize="16px" {...props} />; //<textarea {...props} />
 
 export const Input = (props) => <input {...props} />
 
