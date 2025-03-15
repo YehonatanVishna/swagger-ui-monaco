@@ -1,5 +1,4 @@
-.swagger-ui
-{
+.swagger-ui {
     @import '~tachyons-sass/tachyons.scss';
     @import 'mixins';
     @import 'variables';
@@ -21,4 +20,9 @@
     @import '../core/plugins/json-schema-2020-12/components/all';
     @import '../core/plugins/oas31/components/all';
     @import './swagger-monaco-editor';
+
+}
+
+@media (prefers-color-scheme: dark) {
+    @import './dark-mode';
 }
