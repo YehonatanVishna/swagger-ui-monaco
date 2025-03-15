@@ -6,6 +6,7 @@ import PropTypes from "prop-types"
 import classNames from "classnames"
 import saveAs from "js-file-download"
 import { CopyToClipboard } from "react-copy-to-clipboard"
+import { EditorWrapper } from "../../../components/EditorWrapper/EditorWrapper"
 
 const HighlightCode = ({
   fileName = "response.txt",
@@ -81,15 +82,13 @@ const HighlightCode = ({
         </button>
       )}
 
-      <SyntaxHighlighter
+      <EditorWrapper
         language={language}
         className={classNames(className, "microlight")}
-        renderPlainText={({ children, PlainTextViewer }) => (
-          <PlainTextViewer className={className}>{children}</PlainTextViewer>
-        )}
-      >
-        {children}
-      </SyntaxHighlighter>
+        options={{ readOnly: true }}
+        height="25vh"
+        value={children}
+      ></EditorWrapper>
     </div>
   )
 }

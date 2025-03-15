@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Editor from '@monaco-editor/react';
 import { MONACCO_THEME } from "../../consts";
+import { EditorWrapper } from "./EditorWrapper/EditorWrapper";
 
 function xclass(...args) {
   return args.filter(a => !!a).join(" ").trim()
@@ -126,7 +126,7 @@ export class Button extends React.Component {
 }
 
 
-export const TextArea = (props) => <Editor height="40vh" theme={MONACCO_THEME} defaultLanguage="json" fontSize="16px" {...props} />; //<textarea {...props} />
+export const TextArea = (props) => <EditorWrapper height="40vh" theme={MONACCO_THEME} defaultLanguage="json" fontSize="16px" {...props} />; //<textarea {...props} />
 
 export const Input = (props) => <input {...props} />
 
